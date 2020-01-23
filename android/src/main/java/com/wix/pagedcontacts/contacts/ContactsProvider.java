@@ -64,12 +64,8 @@ public class ContactsProvider {
     }
 
     public WritableArray getContacts(QueryParams params) {
-        if (matchName != null) {
-            return getContactsWithNameFilter(params);
-        } else {
-            List<Contact> contactsWithRange = getContactsWithRange(params);
-            return toWritableArray(params, new List[]{contactsWithRange});
-        }
+        List<Contact> contactsWithRange = getContactsWithRange(params);
+        return toWritableArray(params, new List[]{contactsWithRange});
     }
 
     private WritableArray getContactsWithNameFilter(QueryParams params) {
